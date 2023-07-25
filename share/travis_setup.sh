@@ -1,9 +1,9 @@
 #!/bin/bash
 set -evx
 
-mkdir ~/.dashcore
+mkdir ~/.neobytescore
 
 # safety check
-if [ ! -f ~/.dashcore/.dash.conf ]; then
-  cp share/dash.conf.example ~/.dashcore/dash.conf
+if [ ! -f ~/.neobytescore/.neobytes.conf ]; then
+  cp share/neobytes.conf.example ~/.neobytescore/neobytes.conf
 fi
