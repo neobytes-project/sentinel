@@ -78,7 +78,7 @@ To view debug output, set the `SENTINEL_DEBUG` environment variable to anything 
 ## Maintainer
 
 Dash [@nmarley](https://github.com/nmarley)
-NeoBytes [@SikkieNL](https://github.com/sikkienl)
+NeoBytes [@SikkieNL](https://github.com/SikkieNL)
 
 ## Contributing
 

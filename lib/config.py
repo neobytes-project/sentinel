@@ -3,29 +3,29 @@
 """
 import sys
 import os
-from dash_config import DashConfig
+from neobytes_config import NeoBytesConfig
 
 default_sentinel_config = os.path.normpath(
     os.path.join(os.path.dirname(__file__), '../sentinel.conf')
 )
 sentinel_config_file = os.environ.get('SENTINEL_CONFIG', default_sentinel_config)
-sentinel_cfg = DashConfig.tokenize(sentinel_config_file)
+sentinel_cfg = NeoBytesConfig.tokenize(sentinel_config_file)
 sentinel_version = "1.5.0"
 
 
-def get_dash_conf():
+def get_neobytes_conf():
     if sys.platform == 'win32':
-        dash_conf = os.path.join(os.getenv('APPDATA'), "DashCore/dash.conf")
+        neobytes_conf = os.path.join(os.getenv('APPDATA'), "NeoBytesCore/neobytes.conf")
     else:
         home = os.environ.get('HOME')
 
-        dash_conf = os.path.join(home, ".dashcore/dash.conf")
+        neobytes_conf = os.path.join(home, ".neobytescore/neobytes.conf")
         if sys.platform == 'darwin':
-            dash_conf = os.path.join(home, "Library/Application Support/DashCore/dash.conf")
+            neobytes_conf = os.path.join(home, "Library/Application Support/NeoBytesCore/neobytes.conf")
 
-    dash_conf = sentinel_cfg.get('dash_conf', dash_conf)
+    neobytes_conf = sentinel_cfg.get('neobytes_conf', neobytes_conf)
 
-    return dash_conf
+    return neobytes_conf
 
 
 def get_network():
@@ -85,7 +85,7 @@ def get_db_conn():
     return db
 
 
-dash_conf = get_dash_conf()
+neobytes_conf = get_neobytes_conf()
 network = get_network()
 rpc_host = get_rpchost()
 db = get_db_conn()
