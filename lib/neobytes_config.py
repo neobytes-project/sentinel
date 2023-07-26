@@ -34,7 +34,7 @@ class NeoBytesConfig():
         creds = {key: value for (key, value) in match}
 
         # standard NeoBytes defaults...
-        default_port = 9998 if (network == 'mainnet') else 19998
+        default_port = 11426 if (network == 'mainnet') else 12426
 
         # use default port for network if not specified in neobytes.conf
         if not ('port' in creds):
