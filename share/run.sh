@@ -6,21 +6,21 @@ term_handler() {
 }
 trap term_handler SIGTERM
 
-if [ ! -f /sentinel/dash.conf ]; then
+if [ ! -f /sentinel/neobytes.conf ]; then
   if [ -z "$RPCUSER" -o -z "$RPCPASSWORD" -o -z "$RPCPORT" ]; then
-    echo "When no /sentinel/dash.conf is present, you must at least set RPCUSER, RPCPORT and RPCPASSWORD environment variables"
+    echo "When no /sentinel/neobytes.conf is present, you must at least set RPCUSER, RPCPORT and RPCPASSWORD environment variables"
     exit 1
   fi
 
-  echo "" > /sentinel/dash.conf
+  echo "" > /sentinel/neobytes.conf
   if [ -n "$RPCUSER" ]; then
-    echo "rpcuser=${RPCUSER}" >> /sentinel/dash.conf
+    echo "rpcuser=${RPCUSER}" >> /sentinel/neobytes.conf
   fi
   if [ -n "$RPCPASSWORD" ]; then
-    echo "rpcpassword=${RPCPASSWORD}" >> /sentinel/dash.conf
+    echo "rpcpassword=${RPCPASSWORD}" >> /sentinel/neobytes.conf
   fi
   if [ -n "$RPCPORT" ]; then
-    echo "rpcport=${RPCPORT}" >> /sentinel/dash.conf
+    echo "rpcport=${RPCPORT}" >> /sentinel/neobytes.conf
   fi
 fi
 
@@ -30,7 +30,7 @@ if [ ! -f /sentinel/sentinel.conf ]; then
     exit 1
   fi
 
-  echo "dash_conf=/sentinel/dash.conf" > /sentinel/sentinel.conf
+  echo "neobytes_conf=/sentinel/neobytes.conf" > /sentinel/sentinel.conf
   if [ -n "$RPCHOST" ]; then
     echo "rpchost=${RPCHOST}" >> /sentinel/sentinel.conf
   fi
